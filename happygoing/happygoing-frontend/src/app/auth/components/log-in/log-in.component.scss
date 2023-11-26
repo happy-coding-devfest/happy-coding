@@ -1,0 +1,108 @@
+.logIn {
+    z-index: 1000;
+
+    @media screen and (max-width: 767px) {
+        .logoFormulaire {
+            text-align: center;
+            height: 43vh;
+        }
+    }
+
+    .logoFormulaire {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        animation: fancy_animation 7s ease-in-out infinite;
+        img {
+            animation: animationLogo 3s linear infinite;
+        }
+
+        @media screen and (max-width: 767px) {
+            img {
+                width: 231px;
+                height: 231px;
+            }
+        }
+
+        figure {
+            figcaption {
+                color: #ffffff;
+                filter: drop-shadow(3px 3px 3px #017794c5);
+            }
+        }
+    }
+
+    .formulaire {
+        background-color: #ffffffde;
+        border-radius: 19px;
+
+        .text_formulaire {
+            div {
+                filter: drop-shadow(3px 3px 3px #e9e5e5ea);
+                color: #0093b7;
+            }
+        }
+
+        form {
+            .input {
+                #identifiant, #password {
+                    border-radius: 31px 13px;
+                    border: none;
+                    box-shadow: 0px 2px 3px 1px #72727217;
+                    font-size: .8rem;
+                }
+    
+                label {
+                    color: #0092b7e3;
+                    opacity: .8;
+                    filter: drop-shadow(3px 3px 3px #dfdbdbea);
+                }
+            }
+    
+            .checkbox {
+                label {
+                    color: #a9a7a7f2;
+                    font-size: .83rem;
+                }
+            }
+            
+            .btnlogIn {
+                position: relative;
+                button {
+                    border: none;
+                    color: #fff;
+                    letter-spacing: .7px;
+                    filter: drop-shadow(3px 3px 3px #c4c0c0ea);
+                    background-image: linear-gradient(to right top, #dbe82e, #4dd76f, #00b9a4, #0093b7, #0a6a9d);
+                    transform: scale(1);
+                    transition: all .3s ease-in-out;
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+
+                .loader_spinner {
+                    position: absolute;
+                    background: #ffffff79;
+                    width: 111.47px;
+                    height: 36.39px;
+                    color: #0093b7;
+                }
+            }
+
+            .btnlogIn, .forgot_password {
+                button {
+                    font-size: .85rem;
+                }
+            }
+            
+            .forgot_password {
+                button {
+                    color: #0093b7;
+                }
+            }
+
+            div.text_error_handling {
+                color: #ec0404f1;
+            }
+        }
+    }
+}

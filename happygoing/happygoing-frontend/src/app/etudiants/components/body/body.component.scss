@@ -1,0 +1,29 @@
+.body_dashbord {
+    position: relative;
+    display: flex;
+    .rwbd {
+        // position: fixed;
+        position: absolute;
+        top: 6.1rem;
+        transition: all .3s ease-in-out;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .rwbd_width_true {
+        width: calc(100% - 261px);
+        left: calc(100% - calc(100% - 261px));
+    }
+
+    .rwbd_width_false {
+        width: calc(100% - 79px);
+        left: calc(100% - calc(100% - 79px));
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .rwbd {
+        width: calc(100% - 79px);
+        left: calc(100% - calc(100% - 79px));
+    }
+}

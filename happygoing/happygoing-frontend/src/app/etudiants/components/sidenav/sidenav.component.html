@@ -1,0 +1,95 @@
+<div class="sidebar" 
+    [style]="'box-shadow: 2px 0 0 .7px' + 
+    (colorSidebar === 'dark' ? '#48414185':'#e3dcdc6b')+';'">
+
+    <div class="d-flex justify-content-center align-items-center toggle_sidebar"
+        id="toggle_sidebar" (click)="onToggleSidebar()"
+        [style]="'box-shadow: 2px 0 0 .7px' + 
+        (colorSidebar === 'dark' ? '#48414185':'#e3dcdc6b')+';'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" class="" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+    </div>
+    <div class="scroll_nav">
+        <div class="nav-container mt-3">
+            <ul class="recherche">
+                <li class="mx-2 rounded-3"
+                    [style]="statusSidebar ? 'justify-content: space-between': 
+                        'justify-content: center'"
+                    (click)="onSearch(statusSidebar)">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        [attr.fill]="colorSidebar === 'dark' ? '#00b9e7': '#0093b7'"
+                        class="m-2" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    <input type="search" class="me-2 py-1 rounded-2" 
+                        placeholder=" Recherche..." 
+                        [style]="statusSidebar ? 'display: block': 'display: none'">
+                </li>
+            </ul>
+            <ul class="mb-3">
+                <li class="m-2 rounded-3" 
+                    *ngFor="let data of menu"
+                    [style]="statusSidebar ? 'justify-content: space-between': 
+                        'justify-content: center'"
+                    [class]="colorSidebar === 'dark' ? 'active_menu_dark':'active_menu_light'"
+                    [routerLink]="data.route"
+                    [routerLinkActive]="colorSidebar === 'dark' ? 'active_dark':'active_light'"
+                    [routerLinkActiveOptions]="{exact: true}">
+                    <div class="label">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            [attr.fill]="colorSidebar === 'dark' ? '#00b9e7': '#0093b7'"
+                            [style]="'filter: drop-shadow(1px 2px 1px'+
+                            (colorSidebar === 'dark' ? '#48414185':'#e3dcdc6b')+');'"
+                            class="m-2" viewBox="0 0 16 16">
+                            <path [attr.d]="data.pathSvg_1"/>
+                            <path *ngIf="data.pathSvg_2" [attr.d]="data.pathSvg_2"/>
+                            <path *ngIf="data.pathSvg_3" [attr.d]="data.pathSvg_3"/>
+                        </svg>
+                        <span class="fw-bold mx-2"
+                            [style]="statusSidebar ? 'display: block': 'display: none'"
+                            [class]="colorSidebar === 'dark' ? 
+                                'drop_shadow_and_color_dark':'drop_shadow_and_color_light'">
+                            {{data.label | titlecase}}
+                        </span>
+                    </div>
+                    <ng-container *ngIf="data.route === '/dashbord/emplois'">
+                        <span *ngIf="current$ | async" class="current"></span>
+                    </ng-container>
+                </li>
+            </ul>
+            <hr class="border border-1">
+            <div class="dark_light ms-3 py-1 rounded-3 d-flex justify-content-center">
+                <div class="rounded-3 py-1 d-flex align-items-center justify-content-around" *ngFor="let data of lightDark"
+                    (click)="onSetColor(data.label === 'dark' ? 'dark' : 'light')" 
+                    [class]="colorSidebar === data.label ? 
+                        (colorSidebar === 'dark' ? 'setter_color_dark': 'setter_color_light') : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="mx-2" viewBox="0 0 16 16"
+                        [attr.fill]="colorSidebar === 'dark' ? '#daf8ffe6':'#0b4756e6'" 
+                        [style]="(!statusSidebar && data.label !== colorSidebar) ? 'display: none': 'display: block'">
+                        <path [attr.d]="data.pathSvg"/>
+                    </svg>
+                    <span class="fw-bold mx-2"
+                        [style]="statusSidebar ? 'display: block': 'display: none'">
+                        {{data.label | titlecase }}
+                    </span>
+                </div>
+            </div>
+            <hr class="border border-1 my-3">
+            <div class="log_out rounded-3 mt-5" (click)="onLogout()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="m-2" viewBox="0 0 16 16"
+                    [attr.fill]="colorSidebar === 'dark' ? '#daf8ffe6':'#0b4756e6'" 
+                    [style]="'filter: drop-shadow(1px 2px 1px'+
+                    (colorSidebar === 'dark' ? '#48414185':'#e3dcdc6b')+');'">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                </svg>
+                <span class="fw-bold mx-2"
+                    [style]="statusSidebar ? 'display: block': 'display: none'">
+                    Se deconnecter
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
