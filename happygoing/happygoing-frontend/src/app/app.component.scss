@@ -1,0 +1,85 @@
+#preloader {
+    span:nth-child(1) {
+       svg {
+            animation: 1s ease-in-out infinite alternate animationGoogle_1;
+       }
+    }
+
+    span:nth-child(2) {
+        svg {
+            animation: 1s ease-in-out infinite alternate animationGoogle_2;
+        }
+    }
+
+    span:nth-child(3) {
+        svg {
+            animation: 1s ease-in-out infinite alternate animationGoogle_3;
+        }
+    }
+
+    span:nth-child(4) {
+        svg {
+            animation: 1s ease-in-out infinite alternate animationGoogle_4;
+        }
+    }
+}
+
+@keyframes animationGoogle_1 {
+    0% {
+        fill: #4285f4;
+    }
+    25% {
+        fill: #ea4335;
+    }
+    75% {
+        fill: #fbbc05;
+    }
+    100% {
+        fill: #34a853;
+    }
+}
+
+@keyframes animationGoogle_2 {
+    0% {
+        fill: #ea4335;
+    }
+    25% {
+        fill: #fbbc05;
+    }
+    75% {
+        fill: #34a853;
+    }
+    100% {
+        fill: #4285f4;
+    }
+}
+
+@keyframes animationGoogle_3 {
+    0% {
+        fill: #fbbc05;
+    }
+    25% {
+        fill: #34a853;
+    }
+    75% {
+        fill: #4285f4;
+    }
+    100% {
+        fill: #ea4335;
+    }
+}
+
+@keyframes animationGoogle_4 {
+    0% {
+        fill: #34a853;
+    }
+    25% {
+        fill: #4285f4;
+    }
+    75% {
+       fill: #ea4335;
+    }
+    100% {
+        fill: #fbbc05;
+    }
+}

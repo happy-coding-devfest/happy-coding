@@ -1,0 +1,29 @@
+version: '3'
+services:
+  restapi:
+    image: postgrest/postgrest
+    container_name: restapi
+    ports:
+      - 3131:3131
+    environment:
+      PGRST_DB_URI: postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+      PGRST_DB_SCHEMAS: ${DB_SCHEMAS}
+      PGRST_DB_ANON_ROLE: ${DB_ANON_ROLE}
+      PGRST_SERVER_HOST: ${SERVER_HOST}
+      PGRST_SERVER_PORT: ${SERVER_PORT}
+    restart: always
+    networks:
+      - lahatra3_network
+  
+  swagger:
+    image: swaggerapi/swagger-ui
+    container_name: swagger_docs
+    ports:
+      - 3133:8080
+    expose:
+      - 3133
+    environment:
+      API_URL: http://${SERVER_HOST}:${SERVER_PORT}
+
+networks:
+  lahatra3_network:

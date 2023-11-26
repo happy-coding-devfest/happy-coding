@@ -1,1 +1,231 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Playball';
+    src: url('assets/fonts/Playball-Regular.ttf');
+}
+
+*, *::after, *::before {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    height: 100vh;
+    font-family: 'Roboto';
+    font-size: .85rem;
+    letter-spacing: 1px;
+
+    .scroll_card {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    // ======================== LE GRAND IMAGE SVG POUR CHAQUE COMPONENTS ==================
+    .titre_image_section {
+        svg {
+            width: 231px;
+            fill: currentColor;
+        }
+    }
+
+    // ================================ BACKGROUND COLOR ==========================
+    .colorBg::before {
+        content: '';
+        position: absolute;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        bottom: -3rem;
+        z-index: -1;
+        background-image: linear-gradient(to left bottom, #dbe82e, #4dd76f, #00b9a4, #0093b7, #0a6a9d);
+    }
+
+    // =============================== UTILISER POUR LE DRAG TO SCROLL ===========================
+    .active_card {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+        cursor: -moz-grabbing;
+    }
+
+    // ============================= BUTTON ADD =================== BUTTON ADDD =====================
+    #add_button {
+        position: fixed;
+        background-color: #d2d6d685;
+        padding: 3px;
+        border-radius: 7px;
+        box-shadow: 0px 0px 3px 3px #e2e2e231;
+        cursor: pointer;
+        transform: scale(1);
+        transition: transform .3s ease-in-out;
+        &:hover {
+            transform: scale(1.1);
+        }
+        svg {
+            width: 31px;
+        }
+    }
+    
+    @media screen and (max-width: 767px) {
+        #add_button {
+            bottom: 3%;
+            right: 2%;
+        }
+    }
+    
+    @media screen and (min-width: 767px) {
+        #add_button {
+            top: 31%;
+            right: .5%;
+        }
+    }
+    // =========================================================================================
+    
+    // ============================== CARTE ====================== CARTE =======================
+    .carte_etudiants {
+        background-color: transparent;
+        border: none;
+        box-shadow: 0px 0px 5px 2px #a0a0a01a;
+        height: 100% !important;
+        transform: scale(1);
+        transition: transform .3s ease-in-out;
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        .titre_description {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                height: 2px;
+                width: 79.5px;
+                background-color: currentColor;
+            }
+        }
+
+        .text_scrollable {
+            width: 73%;
+            overflow-x: auto;
+            span {
+                white-space: nowrap;
+            }
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .edit {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 3px 0;
+            margin: 3px;
+            .modifier, .supprimer {
+                background-color: #d2d6d685;
+                padding: 3px;
+                border-radius: 7px;
+                box-shadow: 0px 0px 3px 3px #e2e2e231;
+                cursor: pointer;
+                transform: scale(1);
+                transition: transform .3s ease-in-out;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+   }
+    // ==============================================================================================
+
+    // ===================== LOADER =================== LOADER ==================== LOADER ===============
+    .loader {
+        width: 100%;
+        height: 3px;
+        border-radius: 31px;
+        background-color: #00000033;
+        position: relative;
+    }
+       
+    .loader::before {
+        content: "";
+        position: absolute;
+        background: currentColor;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        border-radius: 31px;
+        animation: animation_loader 1.1s ease-in-out infinite;
+    }
+       
+    @keyframes animation_loader {
+        50% {
+            width: 100%;
+        }
+    
+        100% {
+            width: 0;
+            right: 0;
+            left: unset;
+        }
+    }
+    // ===============================================================================   
+}
+
+@keyframes fancy_animation {
+    0% {
+        border-radius:  60% 40% 30% 70% / 60% 30% 70% 40%;
+        background: linear-gradient(45deg, #00b9a4 0%, #0093b7 100%);
+    }
+    
+    50% {
+        border-radius:  30% 60% 70% 40% / 50% 60% 30% 60%;
+        background: linear-gradient(45deg, #00b9a4 0%, #0a6a9d 100%);
+    }
+
+    100% {
+        border-radius:  60% 40% 30% 70% / 60% 30% 70% 40%;
+        background: linear-gradient(45deg,  #00b9a4 0%, #0093b7 100%);
+    }
+}
+
+@keyframes animationLogo {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    25% {
+        transform: translate3d(1px, 1px, 1px);
+    }
+    50% {
+        transform: translate3d(3px, 3px, 3px);
+    }
+    75% {
+        transform: translate3d(-2px, 2px, -2px);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes animationOnInit {
+    from {
+        transform: rotateY(87deg) translateZ(37px);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg) skew(0deg);
+        opacity: 1;
+    }  
+}

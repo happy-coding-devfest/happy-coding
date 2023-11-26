@@ -1,0 +1,75 @@
+#formations, #add_button {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    animation: .7s linear animationOnInit;
+}
+
+#modalModifierFormation, #modalCreateFormation  {
+    color: #0093b7;
+    form {
+        input, textarea {
+            font-size: .8rem;
+            opacity: .8;
+            color: #121a22ea;
+            letter-spacing: 1px;
+        }
+
+        textarea {
+            height: 131px;
+        }
+
+        button {
+            font-size: .9rem;
+            letter-spacing: 1px;
+        }
+
+        button.close {
+            background: transparent;
+            border: none;
+            color: #727272e7;
+            transform: scale(1);
+            transition: all .3s ease-in-out;
+            &:hover {
+                font-weight: bold;
+                transform: scale(1.03);
+            }
+        }
+
+        button.valider {
+            background-color: #0093b7;
+            color: #fff;
+        }
+    }
+}
+
+#modalSupprimerFormation {
+    color: #0093b7;
+    button.close, button.valider {
+        font-size: .9rem;
+        letter-spacing: 1px;
+        background: transparent;
+        border: none;
+        transform: scale(1);
+        transition: transform .3s ease-in-out;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            height: 1.3px;
+            width: 0;
+            bottom: 23%;
+            left: 0;
+            background-color: currentColor;
+            transition: all .3s ease-in-out;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}
