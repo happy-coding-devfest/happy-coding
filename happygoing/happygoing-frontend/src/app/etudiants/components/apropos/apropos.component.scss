@@ -1,0 +1,198 @@
+#apropos, #edit_apropos {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    filter: drop-shadow(1px 2px 1px #a0a0a05b);
+    animation: .7s linear animationOnInit;
+
+    .status_professionnels_etudiant {
+        margin: auto .1rem;
+    }
+
+    .description_etudiant {
+        figcaption {
+            letter-spacing: 1px;
+            font-family: 'Roboto';
+            font-size: .95rem;
+        }
+
+        background-color: #d6e9ee17;
+        border-radius: 13px 37px;
+    }
+    
+    img, .description_etudiant {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
+
+    @media screen and (min-width: 767px) {
+        .description_etudiant {
+            transform: skew(3deg);
+        }
+    }
+
+    a {
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    .card {
+        background-color: transparent;
+        border: none;
+        border-radius: 17px;
+        box-shadow: 0px 0px 5px 2px #a0a0a01a;
+        transition: transform .3s ease-in-out;
+        transform: scale(1);
+        &:hover {
+            transform: scale(1.05);
+        }
+        div {
+            .text_scroll {
+                width: 73%;
+                overflow-x: auto;
+                span {
+                    white-space: nowrap;
+                }
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            svg {
+                width: 19px !important;
+            }
+        }
+
+    }
+
+    .social_networks {
+        a {
+            transition: transform .3s ease-in-out;
+            transform: scale(1);
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .photo_etudiant {
+        width: 100%;
+        border-radius: 17px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        .edit_pdp, .edit_pdc {
+            cursor: pointer;
+            position: absolute;
+            width: 39px;
+            height: 39px;
+            background-color: #d2d6d68a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 17px;
+            box-shadow: 0px 0px 7px 7px #e2e2e231;
+            svg {
+                width: 27px;
+            }
+        }
+
+        .edit_pdp {
+            top: 73%;
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            transition: transform .3s ease-in-out;
+            &:hover {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        .edit_pdc {
+            bottom: 3%;
+            right: 1%;
+            transform: scale(1);
+            transition: transform .3s ease-in-out;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.edit_apropos {
+    position: fixed;
+    right: -5px;
+    top: 57%;
+    width: 2.3rem;
+    .edit_info, .edit_password {
+        background-color: #d2d6d685;
+        border-radius: 7px;
+        box-shadow: 0px 0px 5px 5px #e2e2e231;
+        transform: scale(1);
+        transition: transform .3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+#modalChangerPassword, #modalModifierApropos {
+    color: #0093b7;
+    form {
+        input, textarea, select {
+            font-size: .8rem;
+            opacity: .8;
+            color: #121a22ea;
+            letter-spacing: 1px;
+        }
+
+        textarea {
+            height: 131px;
+        }
+
+        .checkbox {
+            label {
+                color: #a9a7a7f2;
+                font-size: .83rem;
+            }
+        }
+
+        button {
+            font-size: .9rem;
+            letter-spacing: 1px;
+        }
+
+        button.close {
+            background: transparent;
+            border: none;
+            color: #727272e7;
+            transform: scale(1);
+            transition: all .3s ease-in-out;
+            &:hover {
+                font-weight: bold;
+                transform: scale(1.03);
+            }
+        }
+
+        button.valider {
+            background-color: #0093b7;
+            color: #fff;
+        }
+    }
+}
+
+#modalChangerPDP, #modalChangerPDC {
+    color: #0093b7;
+    img {
+        width: 95%;
+        height: 95%;
+    }
+    .buttonUpload {
+        button {
+            background-color: #0093b7;
+            color: #fff;
+        }
+    }
+}
