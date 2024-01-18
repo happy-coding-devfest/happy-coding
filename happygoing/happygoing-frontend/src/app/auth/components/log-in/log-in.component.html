@@ -1,20 +1,16 @@
-<div class="container logIn colorBg">
+<div class="colorBg"></div>
+<div class="secondBg"></div>
+<div class="container logIn">
     <div class="my-md-3 py-md-4 py-2 my-1"></div>
     <div class="row justify-content-around align-items-center p-1">
         <div class="col-md-5 col-12 my-1 mx-2 logoFormulaire">
             <img ngSrc="assets/images/logo.png" class="img-fluid"
                 width="331" height="331" priority>
-            <figure class="my-md-2 my-1">
-                <figcaption class="blockquote-footer text-center fw-bold px-3 fs-6"> 
-                    "C'est en changeant l'education que l'on peut changer le monde...",
-                    <cite>SESAME</cite>
-                </figcaption>
-            </figure>
         </div>
         <div class="col-md-5 col-12" style="z-index: 1003;">
             <div class="shadow p-1 my-1 formulaire">
                 <div class="text_formulaire mt-4 mb-3">
-                    <div class="fw-bold text-center fs-2">Soyez le bienvenu</div>
+                    <div class="fw-bold text-center fs-2">Bienvenu</div>
                 </div>
                 <form class="mt-1 mb-3 px-3 py-2" 
                     [formGroup]="logInForm" (ngSubmit)="onSubmit()">

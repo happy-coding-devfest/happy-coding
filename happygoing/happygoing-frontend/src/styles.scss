@@ -37,20 +37,6 @@ body {
         }
     }
 
-    // ================================ BACKGROUND COLOR ==========================
-    .colorBg::before {
-        content: '';
-        position: absolute;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        bottom: -3rem;
-        z-index: -1;
-        background-image: linear-gradient(to left bottom, #dbe82e, #4dd76f, #00b9a4, #0093b7, #0a6a9d);
-    }
-
     // =============================== UTILISER POUR LE DRAG TO SCROLL ===========================
     .active_card {
         cursor: grabbing;

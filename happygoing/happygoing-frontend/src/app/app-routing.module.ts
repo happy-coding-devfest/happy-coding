@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'dashbord',
-    loadChildren: () => import('./etudiants/etudiants.module').then(m => m.EtudiantsModule),
+    loadChildren: () => import('./happygoing/happygoing.module').then(m => m.HappygoingModule),
     canActivate: [AuthGuard]
   },
   {path: '**', redirectTo: 'auth', pathMatch: 'full'}
