@@ -1,0 +1,25 @@
+<header class="mb-1 px-md-3 px-1 py-2">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-7 d-flex justify-content-start">
+                <div class="d-flex align-items-center logo" id="logo">
+                    <span class="position-relative">
+                        <img ngSrc="assets/images/logo.png" alt="nodejs" 
+                            class="img-fluid mx-1" width="57" height="57" priority>
+                    </span>
+                    <span class="fs-3 fw-bold mx-md-3 ms-2" style="color: #ffc727;">HappyGoing</span>
+                </div>
+            </div>
+            <div class="col-5 d-flex justify-content-end">
+                <div class="d-flex align-items-center
+                    justify-content-center rounded-pill p-1 session" id="session" *ngIf="apropos$ | async as apropos">
+                    <span class="p-1 rounded-circle position-relative">
+                        <img [src]="apropos.pdp" alt="lahatra3"
+                            class="" width="23" height="23">
+                    </span>
+                    <span class="mx-2">{{apropos.prenoms | shorten}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
